@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@functions{
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div class="justify-content-md-center">
+    <form method="POST">
+        <input asp-for="timer.timer" type="number" />
+        <button class="btn btn-primary" id="start-btn" asp-page-handler="HandleClick">Start count</button>
+    </form>
+  
+
+
+    <h2>
+            @Model.soloCounter.counter
+    </h2>
+</div>
+
+
+@section Scripts
+{
+}
