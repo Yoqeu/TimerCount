@@ -15,24 +15,15 @@ namespace Timeout.Pages
     {
         private readonly ApplicationContext _context;
         public List<Counter> Counter { get; set; } = new List<Counter>();
-        public Counter soloCounter { get; set; } = new Counter();
+        public Counter soloCounter { get; set; } = new Counter() { counter = 0 };
         [BindProperty]
         public Counter CounterEntity { get; set; } = new Counter();
         [BindProperty]
         public Timer timer { get; set; } = new Timer();
         public int tempCounter { get; set; } = 0;
         public int timeout { get; set; } = 0;
-        public bool inProcess { get; set; }
+        public static bool inProcess { get; set; }
 
-
-        /*public CreateModel(ApplicationContext db)
-        {
-            _context = db;
-        }*/
-        /*public void IncreaseCounter()
-        {
-            counter++;
-        }*/
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger, ApplicationContext db)
@@ -41,14 +32,18 @@ namespace Timeout.Pages
             _context = db;
         }
 
-        public async Task<IActionResult> OnPostHandleClick()
+        public async Task<IActionResult> OnPostHandleStart()
         {
-            this.inProcess = true;
+            if(inProcess)
+            {
+                return Page();
+            }
+            inProcess = true;
             Random rnd = new Random();
             int value;
             if (ModelState.IsValid)
             {
-                while(this.inProcess)
+                while(inProcess)
                 {
                     await Task.Delay(timer.timer);
                     value = rnd.Next(1, 15);
@@ -63,33 +58,25 @@ namespace Timeout.Pages
                 counter.counter += tempCounter;
                 await _context.SaveChangesAsync();
 
-                return RedirectToPage("Index");
+                return new RedirectToPageResult("Index");
             }
             return Page();
         }
-
-        /*public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPostHandleStop()
         {
-            if (ModelState.IsValid)
-            {
-                if(!_context.Counters.Any())
-                {
-                    _context.Counters.Add(CounterEntity);
-                    await _context.SaveChangesAsync();
-                }
-                var counter = _context.Counters.FirstOrDefault();
-                counter.counter += 1;
-                //await _context.Update(_context);
-                await _context.SaveChangesAsync();
-                //return RedirectToPage("Index");
-            }
-            return Page();
-        }*/
+            inProcess = false;
+            return new RedirectToPageResult("Index");
+        }
 
-        public void OnGet()
+        public IActionResult OnPostHandleUpdate()
         {
-            soloCounter = _context.Counters?.AsNoTracking().FirstOrDefault();
-            Counter = _context.Counters.AsNoTracking().ToList();
+            return new RedirectToPageResult("Index");
+        }
+
+        public async Task OnGet()
+        {
+            Counter = await _context.Counters?.ToListAsync();
+            soloCounter = await _context.Counters?.FirstOrDefaultAsync();
         }
     }
 }

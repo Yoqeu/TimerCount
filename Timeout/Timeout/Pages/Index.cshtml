@@ -1,26 +1,29 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Counter Page";
 }
 
 @functions{
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Hello</h1>
+    <p>This is my little web app</p>
 </div>
 <div class="justify-content-md-center">
     <form method="POST">
         <input asp-for="timer.timer" type="number" />
-        <button class="btn btn-primary" id="start-btn" asp-page-handler="HandleClick">Start count</button>
+        <button class="btn btn-primary" id="start-btn" asp-page-handler="HandleStart">Start count</button>
+        <button class="btn btn-primary" id="start-btn" asp-page-handler="HandleStop" onclick="window.location.href = '/Index'">Stop count</button>
     </form>
-  
-
-
+</div>
+<div class="justify-content-center">
+    <form method="POST">
+        <button class="btn btn-primary" id="start-btn" asp-page-handler="HandleUpdate" onclick="window.location.href = '/Index'">Update counter</button>
+    </form>
     <h2>
-            @Model.soloCounter.counter
+        @Model?.soloCounter?.counter
     </h2>
 </div>
 

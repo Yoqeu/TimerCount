@@ -1,9 +1,9 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\OrangeProcess\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\OrangeProcess\\.nuget\\packages",
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "C:\\Users\\daren\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\daren\\.nuget\\packages",
+      "D:\\VisualStudion SDK\\NuGetPackages"
     ]
   }
 }

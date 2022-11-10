@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\useful\\Timeout\\Timeout\\Timeout\\Timeout.csproj": {}
+    "D:\\Timer\\TimerCount\\Timeout\\Timeout\\Timeout.csproj": {}
   },
   "projects": {
-    "D:\\useful\\Timeout\\Timeout\\Timeout\\Timeout.csproj": {
+    "D:\\Timer\\TimerCount\\Timeout\\Timeout\\Timeout.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\useful\\Timeout\\Timeout\\Timeout\\Timeout.csproj",
+        "projectUniqueName": "D:\\Timer\\TimerCount\\Timeout\\Timeout\\Timeout.csproj",
         "projectName": "Timeout",
-        "projectPath": "D:\\useful\\Timeout\\Timeout\\Timeout\\Timeout.csproj",
-        "packagesPath": "C:\\Users\\OrangeProcess\\.nuget\\packages\\",
-        "outputPath": "D:\\useful\\Timeout\\Timeout\\Timeout\\obj\\",
+        "projectPath": "D:\\Timer\\TimerCount\\Timeout\\Timeout\\Timeout.csproj",
+        "packagesPath": "C:\\Users\\daren\\.nuget\\packages\\",
+        "outputPath": "D:\\Timer\\TimerCount\\Timeout\\Timeout\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "D:\\VisualStudion SDK\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\OrangeProcess\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\daren\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +30,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +42,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -72,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.425\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
